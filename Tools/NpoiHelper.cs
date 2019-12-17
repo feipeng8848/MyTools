@@ -40,7 +40,7 @@ namespace Tools
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="sheetNum"></param>
-        /// <param name="isSkipNullValue">设置为True就会跳过空单元格或者空行，可能与原数据表有出入，false的时候如果有null值3就会报错</param>
+        /// <param name="isSkipNullValue">设置为True：遇到空行会在返回的DataTable中插入空行，遇到空单元格会读取成string.emty。设置为false的时候如果有null值就会报错</param>
         /// <returns></returns>
         public DataTable GetSheetTable(string fileName, int sheetNum, bool isSkipNullValue = false)
         {
