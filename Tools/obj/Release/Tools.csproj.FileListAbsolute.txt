@@ -1,0 +1,12 @@
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\Tools.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\Tools.pdb
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\NPOI.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\NPOI.OOXML.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\NPOI.OpenXml4Net.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\NPOI.OpenXmlFormats.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\bin\Release\ICSharpCode.SharpZipLib.xml
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\obj\Release\Tools.csprojAssemblyReference.cache
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\obj\Release\Tools.csproj.CopyComplete
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\obj\Release\Tools.dll
+D:\WorkSpace\GBM3.x\GBM3.0\SuooterGunsManageSystem3.0\Tools\obj\Release\Tools.pdb
