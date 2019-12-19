@@ -20,3 +20,11 @@ D:\WorkSpace\GBM3.x\GBM3.0 用户大会结束版本\SuooterGunsManageSystem3.0\U
 D:\WorkSpace\GBM3.x\GBM3.0 用户大会结束版本\SuooterGunsManageSystem3.0\Utility\Tools\obj\Debug\Tools.csproj.CopyComplete
 D:\WorkSpace\GBM3.x\GBM3.0 用户大会结束版本\SuooterGunsManageSystem3.0\Utility\Tools\obj\Debug\Tools.dll
 D:\WorkSpace\GBM3.x\GBM3.0 用户大会结束版本\SuooterGunsManageSystem3.0\Utility\Tools\obj\Debug\Tools.pdb
+C:\Users\kun\Desktop\MyTools\Tools\bin\Debug\Tools.dll
+C:\Users\kun\Desktop\MyTools\Tools\bin\Debug\Tools.pdb
+C:\Users\kun\Desktop\MyTools\Tools\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.csprojAssemblyReference.cache
+C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
+C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.csproj.CopyComplete
+C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.dll
+C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.pdb
