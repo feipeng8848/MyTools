@@ -28,3 +28,16 @@ C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.csproj.CoreCompileInputs.cach
 C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.csproj.CopyComplete
 C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.dll
 C:\Users\kun\Desktop\MyTools\Tools\obj\Debug\Tools.pdb
+D:\WorkSpace\MyTools\Tools\bin\Debug\Tools.dll
+D:\WorkSpace\MyTools\Tools\bin\Debug\Tools.pdb
+D:\WorkSpace\MyTools\Tools\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.dll
+D:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.OOXML.dll
+D:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.OpenXml4Net.dll
+D:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\WorkSpace\MyTools\Tools\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csprojAssemblyReference.cache
+D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
+D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csproj.CopyComplete
+D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.dll
+D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.pdb

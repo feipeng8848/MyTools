@@ -66,5 +66,40 @@ namespace WpfApp
             WindowState = WindowState.Minimized;
         }
         #endregion
+
+        private void BtnTestIDReader_Click(object sender, RoutedEventArgs e)
+        {
+            TestIdCardReader window = new TestIdCardReader();
+            window.Show();
+        }
+
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            List<Person> people = new List<Person>();
+            for (int i = 0; i < 5; i++)
+            {
+                people.Add(new Person() {
+                    FirstName = "FirstName_" + i,
+                    LastName = "LastName_" + i,
+                    Age = (i + 10).ToString()
+                });
+            }
+            MVM.People = people;
+            datagrid.DataContext = MVM.People;
+
+            List<string> items = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                items.Add("Hi I am a item , " + i);
+            }
+            combo.DataContext = items;
+        }
+    }
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string Age { get; set; }
+        public string LastName { get; set; }
     }
 }

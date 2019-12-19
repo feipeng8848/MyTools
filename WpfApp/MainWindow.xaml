@@ -86,14 +86,30 @@
                     </Button>
                 </Grid>
             </Grid>
-            <StackPanel Grid.Row="1" Margin="5">
-                <Button Width="100" Height="35" Content="按钮"></Button>
-                <ComboBox Width="70" Margin="10"></ComboBox>
-                <DataGrid Margin="5"></DataGrid>
-                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="20"></TextBlock>
-                <TextBox Margin="5" Height="200" Text="你好" FontSize="20"></TextBox>
-                <ListBox Height="100"></ListBox>
-            </StackPanel>
+            <ScrollViewer  Grid.Row="1" Margin="5">
+                <StackPanel>
+                    <Button Width="100" Height="35" Content="按钮" Name="btn" Click="Btn_Click"></Button>
+                    <ComboBox Width="150" Margin="10" ItemsSource="{Binding}" Name="combo" HorizontalAlignment="Right"></ComboBox>
+                    <DataGrid Margin="5" Name="datagrid" ItemsSource="{Binding}" CanUserAddRows="False" ColumnWidth="*"></DataGrid>
+                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="20"></TextBlock>
+                    <TextBox Margin="5" Width="200" Text="你好" FontSize="20" HorizontalAlignment="Left"></TextBox>
+                    <ListBox Height="100"></ListBox>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Margin="5" Width="150" Content="测试身份证阅读器" Name="btnTestIDReader"
+                            Click="BtnTestIDReader_Click"></Button>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+            
         </Grid>
     </Border>
 </Window>

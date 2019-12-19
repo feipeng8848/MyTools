@@ -16,5 +16,14 @@ namespace WpfApp.ViewModel
             set => SetProperty(ref name, value);
         }
 
+        private List<Person> people;
+
+        public List<Person> People
+        {
+            get { return people; }
+            set => SetProperty(ref people, value);
+        }
+
+
     }
 }
