@@ -9,11 +9,14 @@
         ResizeMode="CanResizeWithGrip" 
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True"  ShowInTaskbar="False"
-        Title="MainWindow" Height="550" Width="800" MinHeight="550" MinWidth="800">
+        Title="MainWindow" Height="550" Width="800" MinHeight="550" MinWidth="800"
+        Style="{DynamicResource WindowStyle}"
+        Template="{DynamicResource WindowTemplateKey}">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/WindowStyle.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
@@ -22,17 +25,26 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Border BorderThickness="1" BorderBrush="Gray">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5"></SolidColorBrush>
+    </Window.Background>
+
+    <Border Name="WindowBorder" BorderThickness="1" BorderBrush="Gray" 
+            Margin="10" Background="White" CornerRadius="3">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="0" Opacity="0.5"/>
+        </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition MaxHeight="35"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <!--Title Bar-->
+            <Border Background="#00affd" CornerRadius="2.5,2.5,0,0" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"></Border>
             <StackPanel Grid.Row="0" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"
                     Orientation="Horizontal" 
                         HorizontalAlignment="Stretch" 
-                        Background="#00affd" >
+                        >
                 <Image Margin="2" Source="/Resource/AppleLogo_32x32.png"></Image>
                 <TextBlock Text="Title" VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0" Foreground="White"></TextBlock>
             </StackPanel>
