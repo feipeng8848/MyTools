@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip" 
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True"  ShowInTaskbar="False"
+        WindowStyle="None" AllowsTransparency="True"  ShowInTaskbar="True"
         Title="MainWindow" Height="550" Width="800" MinHeight="550" MinWidth="800"
         Style="{DynamicResource WindowStyle}"
         Template="{DynamicResource WindowTemplateKey}">
@@ -30,7 +30,7 @@
     </Window.Background>
 
     <Border Name="WindowBorder" BorderThickness="1" BorderBrush="Gray" 
-            Margin="10" Background="White" CornerRadius="3">
+            Margin="10" Background="White" CornerRadius="{Binding WindowCorner}">
         <Border.Effect>
             <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="0" Opacity="0.5"/>
         </Border.Effect>
@@ -40,7 +40,7 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <!--Title Bar-->
-            <Border Background="#00affd" CornerRadius="2.5,2.5,0,0" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"></Border>
+            <Border Name="TitleBorder" Background="#00affd" CornerRadius="{Binding TiterCorner}" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"></Border>
             <StackPanel Grid.Row="0" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"
                     Orientation="Horizontal" 
                         HorizontalAlignment="Stretch" 

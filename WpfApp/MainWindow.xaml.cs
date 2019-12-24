@@ -51,7 +51,8 @@ namespace WpfApp
                 Top = (SystemParameters.WorkArea.Height - MinHeight) / 2;
                 Left = (SystemParameters.WorkArea.Width - MinWidth) / 2;
                 WindowBorder.Margin = new Thickness(10);
-                WindowBorder.CornerRadius = new CornerRadius(5);
+                WindowBorder.CornerRadius = MVM.WindowCorner;
+                TitleBorder.CornerRadius = MVM.TiterCorner;
             }
             else
             {
@@ -62,6 +63,7 @@ namespace WpfApp
                 Width = SystemParameters.WorkArea.Width;
                 WindowBorder.Margin = new Thickness(0);
                 WindowBorder.CornerRadius = new CornerRadius(0);
+                TitleBorder.CornerRadius = new CornerRadius(0);
             }
         }
 
