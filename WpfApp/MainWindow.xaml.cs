@@ -50,6 +50,8 @@ namespace WpfApp
                 Height = MinHeight;
                 Top = (SystemParameters.WorkArea.Height - MinHeight) / 2;
                 Left = (SystemParameters.WorkArea.Width - MinWidth) / 2;
+                WindowBorder.Margin = new Thickness(10);
+                WindowBorder.CornerRadius = new CornerRadius(5);
             }
             else
             {
@@ -58,6 +60,8 @@ namespace WpfApp
                 WindowState = WindowState.Normal;
                 Height = SystemParameters.WorkArea.Height;
                 Width = SystemParameters.WorkArea.Width;
+                WindowBorder.Margin = new Thickness(0);
+                WindowBorder.CornerRadius = new CornerRadius(0);
             }
         }
 
