@@ -13,6 +13,7 @@ using WpfApp.ViewModel;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Interop;
 
 namespace WpfApp
 {
@@ -31,6 +32,123 @@ namespace WpfApp
 
         MainVM MVM = null;
 
+        #region 窗体大小
+        private const int WM_NCHITTEST = 0x0084;
+        private readonly int agWidth = 12; //拐角宽度  
+        private readonly int bThickness = 4; // 边框宽度   
+        private Point mousePoint = new Point(); //鼠标坐标
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            HwndSource hwndSource = PresentationSource.FromVisual(this) as HwndSource;
+            if (hwndSource != null)
+            {
+                hwndSource.AddHook(new HwndSourceHook(this.WndProc));
+            }
+        }
+        protected virtual IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            switch (msg)
+            {
+                case WM_NCHITTEST:
+                    this.mousePoint.X = (lParam.ToInt32() & 0xFFFF);
+                    this.mousePoint.Y = (lParam.ToInt32() >> 16);
+
+                    // 窗口左上角  
+                    if (this.mousePoint.Y - this.Top <= this.agWidth
+                        && this.mousePoint.X - this.Left <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTTOPLEFT);
+                    }
+                    // 窗口左下角      
+                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth
+                        && this.mousePoint.X - this.Left <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTBOTTOMLEFT);
+                    }
+                    // 窗口右上角  
+                    else if (this.mousePoint.Y - this.Top <= this.agWidth
+                        && this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTTOPRIGHT);
+                    }
+                    // 窗口右下角  
+                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.agWidth
+                        && this.ActualHeight + this.Top - this.mousePoint.Y <= this.agWidth)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTBOTTOMRIGHT);
+                    }
+                    // 窗口左侧  
+                    else if (this.mousePoint.X - this.Left <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTLEFT);
+                    }
+                    // 窗口右侧  
+                    else if (this.ActualWidth + this.Left - this.mousePoint.X <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTRIGHT);
+                    }
+                    // 窗口上方  
+                    else if (this.mousePoint.Y - this.Top <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTTOP);
+                    }
+                    // 窗口下方  
+                    else if (this.ActualHeight + this.Top - this.mousePoint.Y <= this.bThickness)
+                    {
+                        handled = true;
+                        return new IntPtr((int)HitTest.HTBOTTOM);
+                    }
+                    else
+                    {
+                        return IntPtr.Zero;
+                    }
+            }
+            return IntPtr.Zero;
+        }
+
+        public enum HitTest : int
+        {
+            HTERROR = -2,
+            HTTRANSPARENT = -1,
+            HTNOWHERE = 0,
+            HTCLIENT = 1,
+            HTCAPTION = 2,
+            HTSYSMENU = 3,
+            HTGROWBOX = 4,
+            HTSIZE = HTGROWBOX,
+            HTMENU = 5,
+            HTHSCROLL = 6,
+            HTVSCROLL = 7,
+            HTMINBUTTON = 8,
+            HTMAXBUTTON = 9,
+            HTLEFT = 10,
+            HTRIGHT = 11,
+            HTTOP = 12,
+            HTTOPLEFT = 13,
+            HTTOPRIGHT = 14,
+            HTBOTTOM = 15,
+            HTBOTTOMLEFT = 16,
+            HTBOTTOMRIGHT = 17,
+            HTBORDER = 18,
+            HTREDUCE = HTMINBUTTON,
+            HTZOOM = HTMAXBUTTON,
+            HTSIZEFIRST = HTLEFT,
+            HTSIZELAST = HTBOTTOMRIGHT,
+            HTOBJECT = 19,
+            HTCLOSE = 20,
+            HTHELP = 21,
+        }
+        #endregion
+
+
         #region 导航栏
         private void NavBar_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -42,22 +160,42 @@ namespace WpfApp
             Close();
         }
 
+        Rect rcnormal;
         private void Max_Click(object sender, RoutedEventArgs e)
         {
-            if (Top == 0 & Left == 0)
+            if (Top == 0 && Left == 0)
             {
-                Width = MinWidth;
-                Height = MinHeight;
-                Top = (SystemParameters.WorkArea.Height - MinHeight) / 2;
-                Left = (SystemParameters.WorkArea.Width - MinWidth) / 2;
+                Width = rcnormal.Width;
+                Height = rcnormal.Height;
+                Top = rcnormal.Top;
+                Left = rcnormal.Left;
+                WindowBorder.Margin = new Thickness(10);
+                WindowBorder.CornerRadius = MVM.WindowCorner;
+                TitleBorder.CornerRadius = MVM.TiterCorner;
+            }
+            else if (Top == 0 && Left == SystemParameters.WorkArea.Width)
+            {
+                Width = rcnormal.Width;
+                Height = rcnormal.Height;
+                Top = rcnormal.Top;
+                Left = rcnormal.Left;
                 WindowBorder.Margin = new Thickness(10);
                 WindowBorder.CornerRadius = MVM.WindowCorner;
                 TitleBorder.CornerRadius = MVM.TiterCorner;
             }
             else
             {
-                Top = 0;
-                Left = 0;
+                rcnormal = new Rect(Left, Top, Width, Height);
+                if (Left < SystemParameters.WorkArea.Width)
+                {
+                    Top = 0;
+                    Left = 0;
+                }
+                else if (Left >= SystemParameters.WorkArea.Width)
+                {
+                    Top = 0;
+                    Left = SystemParameters.WorkArea.Width;
+                }
                 WindowState = WindowState.Normal;
                 Height = SystemParameters.WorkArea.Height;
                 Width = SystemParameters.WorkArea.Width;
@@ -84,7 +222,8 @@ namespace WpfApp
             List<Person> people = new List<Person>();
             for (int i = 0; i < 5; i++)
             {
-                people.Add(new Person() {
+                people.Add(new Person()
+                {
                     FirstName = "FirstName_" + i,
                     LastName = "LastName_" + i,
                     Age = (i + 10).ToString()
