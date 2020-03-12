@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace WpfApp.ViewModel
 {
@@ -40,6 +41,21 @@ namespace WpfApp.ViewModel
         {
             get { return people; }
             set => SetProperty(ref people, value);
+        }
+
+        public ICommand BtnClick
+        {
+            get
+            {
+                return new RelayCommand
+                {
+                    CanExecutePredicate = a => true,
+                    ExecuteAction = a =>
+                    {
+                        MessageBox.Show("hello btn click");
+                    }
+                };
+            }
         }
 
 

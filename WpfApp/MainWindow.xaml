@@ -117,7 +117,7 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Button Margin="5" Width="150" Content="测试身份证阅读器" Name="btnTestIDReader"
-                            Click="BtnTestIDReader_Click"></Button>
+                            Click="BtnTestIDReader_Click" Command="{Binding BtnClick}"></Button>
                     </Grid>
                 </StackPanel>
             </ScrollViewer>

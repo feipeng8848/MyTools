@@ -41,3 +41,15 @@ D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csproj.CoreCompileInputs.cache
 D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csproj.CopyComplete
 D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.dll
 D:\WorkSpace\MyTools\Tools\obj\Debug\Tools.pdb
+Y:\WorkSpace\MyTools\Tools\bin\Debug\Tools.dll
+Y:\WorkSpace\MyTools\Tools\bin\Debug\Tools.pdb
+Y:\WorkSpace\MyTools\Tools\bin\Debug\ICSharpCode.SharpZipLib.dll
+Y:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.dll
+Y:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.OOXML.dll
+Y:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.OpenXml4Net.dll
+Y:\WorkSpace\MyTools\Tools\bin\Debug\NPOI.OpenXmlFormats.dll
+Y:\WorkSpace\MyTools\Tools\bin\Debug\ICSharpCode.SharpZipLib.xml
+Y:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csprojAssemblyReference.cache
+Y:\WorkSpace\MyTools\Tools\obj\Debug\Tools.csproj.CopyComplete
+Y:\WorkSpace\MyTools\Tools\obj\Debug\Tools.dll
+Y:\WorkSpace\MyTools\Tools\obj\Debug\Tools.pdb
