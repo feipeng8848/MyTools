@@ -98,6 +98,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resource\svgresource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TestIdCardReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +181,9 @@
     <Resource Include="Resource\chevron-down-dark.png" />
     <Resource Include="Resource\chevron-up-dark.png" />
     <Resource Include="Resource\close-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Convertor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\Tools\packages\MaterialDesignThemes.3.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\Tools\packages\MaterialDesignThemes.3.0.0\build\MaterialDesignThemes.targets')" />

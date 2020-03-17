@@ -4,11 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.Windows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen"         
+        WindowStartupLocation="CenterScreen"  
+         Margin="5" 
+        BorderThickness="0.5,0.5,1,1" 
+        ResizeMode="CanResize" 
         >
-   
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,7 +28,16 @@
                     HorizontalAlignment="Left">
             <Button Content="Close" Width="120" Height="40" Click="Btn_Close_Click"></Button>
             <Button Content="Max" Width="120" Height="40" Click="Btn_Max_Click"></Button>
-            <Button Content="Min" Width="120" Height="40" Click="Btn_Min_Click"></Button>
+            <Button Click="Btn_Min_Click"
+                    Content="X"
+                    Width="25"
+                    Height="25"
+                    Background="Red"
+                    FontSize="20"
+                    Foreground="White"
+                    >
+            </Button>
+            
         </StackPanel>
     </Grid>
 </Window>
