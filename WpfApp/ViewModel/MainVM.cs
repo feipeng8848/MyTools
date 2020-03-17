@@ -11,6 +11,13 @@ namespace WpfApp.ViewModel
 {
     class MainVM : ViewModelBase
     {
+        private string _connStr;
+
+        public string connStr
+        {
+            get { return _connStr; }
+            set => SetProperty(ref _connStr, value);
+        }
 
 
         private CornerRadius windowCorner = new CornerRadius(3);
@@ -57,6 +64,7 @@ namespace WpfApp.ViewModel
                     {
                         MessageBox.Show("hello btn click");
                         LogError.Info("按钮按下log");
+                        LogInfo.Info("sdfsad");
                     }
                 };
             }

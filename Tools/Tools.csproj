@@ -56,13 +56,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NpoiHelper.cs" />
-    <Compile Include="NpoiHelperDemo.cs" />
+    <Compile Include="NPOI\NpoiHelper.cs" />
+    <Compile Include="NPOI\NpoiHelperDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Cfg\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using WpfApp.ViewModel;
+using System.Configuration;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -36,7 +37,45 @@ namespace WpfApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            ViewModelBase.LogInfo.Info("载入窗体");
+        }
 
+        /// <summary>
+        /// 读取配置文件.引用：在使用中
+        /// 如果出现“ 当前上下文中不存在名称：ConfigurationManager ”，右键引用，添加，搜索 System.Configuration
+        /// </summary>
+        void getCfg()
+        {
+            try
+            {
+                var appSettings = ConfigurationManager.AppSettings;
+                MVM.connStr = appSettings["connStr"];
+            }
+            catch (ConfigurationErrorsException)
+            {
+                ViewModelBase.LogInfo.Info("Error reading app settings");
+            }
+        }
+        /// <summary>
+        /// 写配置文件
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="value"></param>
+        void writeCfg(string item, string value)
+        {
+            try
+            {
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings[item].Value = value;
+                config.AppSettings.SectionInformation.ForceSave = true;
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+            }
+            catch (ConfigurationErrorsException)
+            {
+                Console.WriteLine("Error write app settings");
+            }
+            getCfg();
         }
 
         MainVM MVM = null;
