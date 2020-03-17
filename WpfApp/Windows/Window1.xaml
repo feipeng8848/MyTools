@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp.Windows.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Windows"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"         
+        >
+   
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="40" MinHeight="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" 
+                    Orientation="Horizontal" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Left">
+            <Button Content="Close" Width="120" Height="40" Click="Btn_Close_Click"></Button>
+            <Button Content="Max" Width="120" Height="40" Click="Btn_Max_Click"></Button>
+            <Button Content="Min" Width="120" Height="40" Click="Btn_Min_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

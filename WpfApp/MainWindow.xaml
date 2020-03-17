@@ -45,7 +45,7 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <!--关闭按钮-->
-                    <Button Height="30" Grid.Column="2"
+                    <!--<Button Height="30" Grid.Column="2"
                                     Background="{x:Null}"
                                     BorderBrush="{x:Null}"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
@@ -57,22 +57,52 @@
                                               Fill="Black" />
                             </Canvas>
                         </Viewbox>
+                    </Button>-->
+                    <Button Width="25" Height="25" Grid.Column="2" Click="Close_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border>
+                                    <Image Name="Image" Margin="2" Source="Resource/close-gray.png" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Image" Property="Source" Value="Resource/close-red.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
+                    
                     <!--最大化-->
-                    <Button Height="30" Grid.Column="1"
+                    <!--<Button Height="30" Grid.Column="1"
                                     Background="{x:Null}"
                                     BorderBrush="{x:Null}"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
                                     Click="Max_Click"
                                     Padding="0">
+                        
                         <Viewbox Width="25" Height="25">
                             <Canvas Width="24" Height="24">
                                 <Path Data="M4,4H20V20H4V4M6,8V18H18V8H6Z"  Fill="Black" />
                             </Canvas>
                         </Viewbox>
+                    </Button>-->
+                    <Button Width="25" Height="25" Grid.Column="1" Click="Max_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border>
+                                    <Image Name="Image" Margin="2" Source="Resource/chevron-up-gray.png" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Image" Property="Source" Value="Resource/chevron-up-dark.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
                     <!--最小化-->
-                    <Button Height="30"
+                    <!--<Button Height="30"
                                     Background="{x:Null}"
                                     BorderBrush="{x:Null}"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth1"
@@ -83,6 +113,20 @@
                                 <Path Data="M20,14H4V10H20" Fill="Black" />
                             </Canvas>
                         </Viewbox>
+                    </Button>-->
+                    <Button Width="25" Height="25" Grid.Column="0" Click="Min_Click">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border>
+                                    <Image Name="Image" Margin="2" Source="Resource/chevron-down-gray.png" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Image" Property="Source" Value="Resource/chevron-down-dark.png"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
                 </Grid>
             </Grid>
@@ -106,7 +150,10 @@
                         </Grid.ColumnDefinitions>
                         <Button Margin="5" Width="150" Content="测试身份证阅读器" Name="btnTestIDReader"
                             Click="BtnTestIDReader_Click" Command="{Binding BtnClick}"></Button>
+
                     </Grid>
+
+                   
                 </StackPanel>
             </ScrollViewer>
             

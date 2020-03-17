@@ -260,10 +260,6 @@ namespace WpfApp
         #endregion
 
 
-        
-
-
-
         private void BtnTestIDReader_Click(object sender, RoutedEventArgs e)
         {
             TestIdCardReader window = new TestIdCardReader();
