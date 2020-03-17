@@ -14,6 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Interop;
+using log4net;
+using log4net.Repository;
+using System.IO;
+using log4net.Config;
 
 namespace WpfApp
 {
@@ -28,6 +32,11 @@ namespace WpfApp
             MVM = new MainVM(); ;
             MVM.Name = "GitHub";
             DataContext = MVM;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
         MainVM MVM = null;
@@ -211,6 +220,11 @@ namespace WpfApp
         }
         #endregion
 
+
+        
+
+
+
         private void BtnTestIDReader_Click(object sender, RoutedEventArgs e)
         {
             TestIdCardReader window = new TestIdCardReader();
@@ -239,6 +253,7 @@ namespace WpfApp
             }
             combo.DataContext = items;
         }
+        
     }
 
     public class Person

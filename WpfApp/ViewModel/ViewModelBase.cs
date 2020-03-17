@@ -5,7 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
+using log4net.Config;
+using log4net.Repository;
 using System.Windows.Input;
+using System.IO;
 
 namespace WpfApp.ViewModel
 {
@@ -23,6 +27,38 @@ namespace WpfApp.ViewModel
             }
             return false;
         }
+
+        public ViewModelBase()
+        {
+            InitLog4Net();
+            LogInfo.Info("开始记录log");
+        }
+
+
+
+
+        #region Log4Net
+        public static ILog LogDebug = null;
+        public static ILog LogInfo = null;
+        public static ILog LogError = null;
+
+        /*使用方法
+          LogDebug.Debug("logDebug");
+          LogInfo.Info("loginfo");
+          LogError.Error("error");
+        */
+
+        static void InitLog4Net()
+        {
+            ILoggerRepository repository = LogManager.CreateRepository("NETRepository");
+            XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));
+            //LogInfo = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            LogDebug = LogManager.GetLogger(repository.Name, "logDebug");
+            LogInfo = LogManager.GetLogger(repository.Name, "loginfo");
+            LogError = LogManager.GetLogger(repository.Name, "logError");
+        }
+
+        #endregion
     }
 
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,10 @@ using System.Windows.Input;
 
 namespace WpfApp.ViewModel
 {
-    class MainVM:ViewModelBase
+    class MainVM : ViewModelBase
     {
+
+
         private CornerRadius windowCorner = new CornerRadius(3);
 
         public CornerRadius WindowCorner
@@ -53,6 +56,7 @@ namespace WpfApp.ViewModel
                     ExecuteAction = a =>
                     {
                         MessageBox.Show("hello btn click");
+                        LogError.Info("按钮按下log");
                     }
                 };
             }

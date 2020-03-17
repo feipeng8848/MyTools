@@ -11,19 +11,7 @@
         WindowStyle="None" AllowsTransparency="True"  ShowInTaskbar="True"
         Title="MainWindow" Height="550" Width="800" MinHeight="550" MinWidth="800"
         Style="{DynamicResource WindowStyle}"
-        Template="{DynamicResource WindowTemplateKey}">
-
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/WindowStyle.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+        Template="{DynamicResource WindowTemplateKey}" Loaded="Window_Loaded">
 
     <Window.Background>
         <SolidColorBrush Opacity="0.5"></SolidColorBrush>
