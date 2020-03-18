@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:local="clr-namespace:ticktick_WPF.Resource">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib" >
   <Path x:Key="ic_svg_path_sync" Data="M5,19.5 C2.1,19.5 -0.29999999999999982,17.6 -1.2000000000000002,15 L1,15 L1,14 L-1.4,14 L-2,14 L-2.4,14 L-3,14 L-3,18 L-2,18 L-2,15.7 C-0.89999999999999991,18.5 1.7999999999999998,20.5 5,20.5 C8.8,20.5 11.9,17.7 12.4,14 L11.4,14 C10.9,17.1 8.2,19.5 5,19.5 M12,8 L12,10.3 C10.9,7.5000000000000009 8.2,5.5000000000000009 5,5.5000000000000009 C1.2000000000000002,5.5000000000000009 -1.9000000000000004,8.3 -2.4000000000000004,12 L-1.4000000000000004,12 C-0.9,8.9 1.8,6.5 5,6.5 C7.9,6.5 10.3,8.4 11.2,11 L9,11 L9,12 L11.4,12 L12,12 L12.4,12 L13,12 L13,8 L12,8" />
   <Path x:Key="ic_svg_path_max" Data="M-6,8 L-6,18 L4,18 L4,8 L-6,8 M3,17 L-5,17 L-5,9 L3,9 L3,17" />
   <Polygon x:Key="ic_svg_polygon_close" Points="6.4,8.4 5.6,7.6 1,12.3 -3.6,7.6 -4.4,8.4 0.3,13 -4.4,17.6 -3.6,18.4 1,13.7 5.6,18.4 6.4,17.6 1.7,13" />
