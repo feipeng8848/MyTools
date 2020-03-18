@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="/Styles/WindowStyle.xaml"/>
                 <ResourceDictionary Source="/Styles/Win10Style.xaml"/>
                 <ResourceDictionary Source="/Resource/Svg/svgresource.xaml"/>
+                <ResourceDictionary Source="/Theme/DefaultColor.xaml"/>
 
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />

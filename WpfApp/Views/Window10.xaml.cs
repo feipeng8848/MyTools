@@ -49,6 +49,33 @@ namespace WpfApp.Windows
                 DragMove();
                 e.Handled = true;
             }
+            //最大化的时候也能响应
+            if (this.WindowState == WindowState.Maximized && e.LeftButton == MouseButtonState.Pressed)
+            {
+                Grid obj = (Grid)sender;
+                System.Windows.Point position = Mouse.GetPosition(obj);
+                System.Windows.Point point = obj.PointToScreen(new System.Windows.Point(0.0, 0.0));
+                CompositionTarget compositionTarget = PresentationSource.FromVisual(obj)?.CompositionTarget;
+                if (compositionTarget != null)
+                {
+                    point = compositionTarget.TransformFromDevice.Transform(point);
+                }
+                base.Top = point.Y;
+                double num = 0.0;
+                if (!double.TryParse(ApplicationSetting.Settings.MainWindowWidth.ToString(CultureInfo.InvariantCulture), out double result))
+                {
+                    result = 1000.0;
+                }
+                if (position.X > result / 2.0)
+                {
+                    num = position.X - result / 2.0;
+                }
+                base.Left = point.X + num;
+                base.WindowState = WindowState.Normal;
+                ApplicationSetting.Settings.Maxmized = false;
+                DragMove();
+                e.Handled = true;
+            }
         }
 
         private void StopDragMove(object sender, MouseButtonEventArgs e)
@@ -174,7 +201,8 @@ namespace WpfApp.Windows
 
         private void Btn_Close_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBox.Show("按下按钮");
+            LogInfo.Info("按下按钮");
         }
 
         private void Btn_Max_Click(object sender, RoutedEventArgs e)

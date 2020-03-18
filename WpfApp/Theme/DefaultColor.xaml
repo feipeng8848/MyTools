@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfApp.Theme">
+    <SolidColorBrush x:Key="PrimaryColor">#22222222</SolidColorBrush>
+    <SolidColorBrush x:Key="PriorityHighColor" Color="#f5f6f8" />
+    <SolidColorBrush x:Key="PriorityMediumColor" Color="#FFC817" />
+    <SolidColorBrush x:Key="PriorityLowColor" Color="LightBlue" />
+</ResourceDictionary>

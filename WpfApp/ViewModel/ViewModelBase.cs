@@ -35,9 +35,6 @@ namespace WpfApp.ViewModel
             LogInfo.Info("开始记录log");
         }
 
-
-
-
         #region Log4Net
         public static ILog LogDebug = null;
         public static ILog LogInfo = null;

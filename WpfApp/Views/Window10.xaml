@@ -97,10 +97,13 @@
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Left">
             <TextBlock Text="Text"></TextBlock>
-            <Button Content="Close" Width="120" Height="40" Click="Btn_Close_Click"></Button>
+            <Button Content="Close" 
+                    Margin="5"
+                    Width="120" Height="40" Click="Btn_Close_Click"></Button>
             <Button Content="Max" Width="120" Height="40" Click="Btn_Max_Click"></Button>
             <Button Click="Btn_Min_Click"
                     Content="X"
+                    Margin="5"
                     Width="25"
                     Height="25"
                     Background="Red"
