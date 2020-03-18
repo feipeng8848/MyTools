@@ -175,10 +175,10 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="UIElement.IsMouseOver" Value="True">
                             <!--border包一层ContentPresenter，鼠标经过和按下的时候修改border的背景-->
-                            <Setter TargetName="PART_Background" Value="{DynamicResource ButtonHoverColor}" Property="Border.Background" />
+                            <Setter TargetName="PART_Background" Value="#0F05080F" Property="Border.Background" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="PART_Background" Value="{DynamicResource DividerColorPrimary}" Property="Border.Background" />
+                            <Setter TargetName="PART_Background" Value="#2E05080F" Property="Border.Background" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -218,7 +218,7 @@
                         <Trigger Property="UIElement.IsMouseOver" Value="True">
                             <Setter TargetName="PART_Background" Property="Border.Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource ColorPrimary}" />
+                                    <SolidColorBrush Color="#FF4B6EDE" />
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Foreground">
@@ -232,7 +232,7 @@
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="PART_Background" Property="Border.Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource ColorPrimary}" Opacity="0.75" />
+                                    <SolidColorBrush Color="#FF4B6EDE" Opacity="0.75" />
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Foreground">

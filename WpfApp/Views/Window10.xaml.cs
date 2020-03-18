@@ -37,7 +37,6 @@ namespace WpfApp.Windows
         }
 
         #region 标题栏
-        private bool canDragToNormal = true;
         /// <summary>
         /// 鼠标移动标题栏
         /// </summary>
@@ -54,7 +53,7 @@ namespace WpfApp.Windows
 
         private void StopDragMove(object sender, MouseButtonEventArgs e)
         {
-            canDragToNormal = false;
+            //canDragToNormal = false;
         }
 
 
@@ -103,8 +102,8 @@ namespace WpfApp.Windows
 		private void ToggleWindowState()
         {
             LogInfo.Info("ToggleWindowState is exe ");
-            //base.WindowState = ((base.WindowState != WindowState.Maximized) ? WindowState.Maximized : WindowState.Normal);
-            //LocalSettings.Settings.Maxmized = (base.WindowState == WindowState.Maximized);
+            base.WindowState = ((base.WindowState != WindowState.Maximized) ? WindowState.Maximized : WindowState.Normal);
+            ApplicationSetting.Settings.Maxmized = (base.WindowState == WindowState.Maximized);
             //SafeSetWindowSize();
             //ProjectMenu.Background = new SolidColorBrush(Colors.Transparent);
         }

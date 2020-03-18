@@ -7,12 +7,14 @@
         xmlns:local="clr-namespace:WpfApp.Windows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800"
+        Focusable="True" 
+        Title="Window10" Height="450" Width="800"
+        Name="Window"
+        UseLayoutRounding="True" 
         WindowStartupLocation="CenterScreen"  
-         Margin="5" 
+        Margin="5" 
         BorderThickness="0.5,0.5,1,1" 
-        ResizeMode="CanResize" 
-        >
+        ResizeMode="CanResize">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
@@ -31,6 +33,20 @@
             <RowDefinition MaxHeight="40" MinHeight="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!--压缩边缘以免最大化之裁剪掉内容-->
+        <FrameworkElement.Style>
+            <Style TargetType="{x:Type Grid}">
+                <Style.Triggers>
+                    <DataTrigger Value="Maximized" Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}">
+                        <Setter Property="Margin" Value="8" />
+                    </DataTrigger>
+                    <DataTrigger Value="Normal" Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}">
+                        <Setter Property="Margin" Value="0" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </FrameworkElement.Style>
 
 
 
@@ -80,6 +96,7 @@
                     Orientation="Horizontal" 
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Left">
+            <TextBlock Text="Text"></TextBlock>
             <Button Content="Close" Width="120" Height="40" Click="Btn_Close_Click"></Button>
             <Button Content="Max" Width="120" Height="40" Click="Btn_Max_Click"></Button>
             <Button Click="Btn_Min_Click"
