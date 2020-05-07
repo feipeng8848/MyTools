@@ -1,46 +1,43 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:s="clr-namespace:System;assembly=mscorlib" >
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib">
 
 
 
-    
-    <SolidColorBrush x:Key="DividerColorPrimary" Color="LightGray"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="DividerColorPrimary" Color="LightGray" />
     <SolidColorBrush x:Key="PriorityHighColor" Color="#f5f6f8" />
     <SolidColorBrush x:Key="PriorityMediumColor" Color="#22222222" />
     <SolidColorBrush x:Key="PriorityLowColor" Color="LightBlue" />
-    
+
     <SolidColorBrush x:Key="TextColorTertiary" Color="Gray" />
     <SolidColorBrush x:Key="TextColorPrimary" Color="Black" />
 
 
-    
-    
-    
-    
-    
-    <!--PrimaryColor，主色调 筛选、按钮、等功能性控件，选中、高亮、正在使用等.鼠标经过、按下等通过透明度实现差异化-->
-    <SolidColorBrush x:Key="PrimaryColor_Main" Color="#34a1ed"></SolidColorBrush> 
-    <SolidColorBrush x:Key="PrimaryColor_Succeed" Color="#3fb618"></SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryColor_Danger" Color="#ff0039"></SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryColor_info" Color="#9954bb"></SolidColorBrush>
-    <SolidColorBrush x:Key="PrimaryColor_Warning" Color="#ff7518"></SolidColorBrush>
-    
-    <!--SecondaryColor 未选中-->
-    <SolidColorBrush x:Key="SecondaryColor"></SolidColorBrush>
 
-    <!--前景色，文字-->
-    <SolidColorBrush x:Key="Foreground_LightColor" Color="#f8f9fa"></SolidColorBrush>
-    <SolidColorBrush x:Key="Foreground_DarkColor" Color="#343a40"></SolidColorBrush> 
+    <!--  PrimaryColor，主色调 筛选、按钮、等功能性控件，选中、高亮、正在使用等.鼠标经过、按下等通过透明度实现差异化  -->
+    <SolidColorBrush x:Key="PrimaryColor_Main" Color="#34a1ed" />
+    <SolidColorBrush x:Key="PrimaryColor_Succeed" Color="#3fb618" />
+    <SolidColorBrush x:Key="PrimaryColor_Danger" Color="#ff0039" />
+    <SolidColorBrush x:Key="PrimaryColor_info" Color="#9954bb" />
+    <SolidColorBrush x:Key="PrimaryColor_Warning" Color="#ff7518" />
 
-    <!--背景色-->
-    <SolidColorBrush x:Key="Background_PrimaryColor" Color="#ecf0f1"></SolidColorBrush>
-    <SolidColorBrush x:Key="Background_SecondaryColor" Color="#f7f7f7"></SolidColorBrush>
-    <SolidColorBrush x:Key="Background_ThirdlyColor" Color="#ffffff"></SolidColorBrush>
+    <!--  SecondaryColor 未选中  -->
+    <SolidColorBrush x:Key="SecondaryColor" />
 
-    <!--Divider，分割线-->
-    <SolidColorBrush x:Key="Divider_Color_Light" Color="#d1d4d7"></SolidColorBrush>
-    <SolidColorBrush x:Key="Divider_Color_Dark" Color="#3b3b3b"></SolidColorBrush>
+    <!--  前景色，文字  -->
+    <SolidColorBrush x:Key="Foreground_LightColor" Color="#f8f9fa" />
+    <SolidColorBrush x:Key="Foreground_DarkColor" Color="#343a40" />
+
+    <!--  背景色  -->
+    <SolidColorBrush x:Key="Background_PrimaryColor" Color="#ecf0f1" />
+    <SolidColorBrush x:Key="Background_SecondaryColor" Color="#f7f7f7" />
+    <SolidColorBrush x:Key="Background_ThirdlyColor" Color="#ffffff" />
+
+    <!--  Divider，分割线  -->
+    <SolidColorBrush x:Key="Divider_Color_Light" Color="#d1d4d7" />
+    <SolidColorBrush x:Key="Divider_Color_Dark" Color="#3b3b3b" />
 
 
 

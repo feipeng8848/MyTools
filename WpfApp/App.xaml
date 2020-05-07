@@ -11,9 +11,9 @@
                 <ResourceDictionary Source="/Resource/Location/CommonStr_EnUs.xaml" />
                 <ResourceDictionary Source="/Resource/Svg/SvgResource.xaml" />
 
-                <ResourceDictionary Source="/Themes/DefaultColor.xaml" />
                 <ResourceDictionary Source="/Themes/DefaultIcon.xaml" />
                 <ResourceDictionary Source="/Themes/DefaultTextFont.xaml" />
+                <ResourceDictionary Source="/Themes/LightBlue.xaml" />
 
                 <ResourceDictionary Source="/Styles/SimpleStyle.xaml" />
 

@@ -57,7 +57,7 @@
         <Grid
             Height="32"
             VerticalAlignment="Top"
-            Background="{DynamicResource PrimaryColor_Main}"
+            Background="{DynamicResource PrimaryColor}"
             MouseLeftButtonDown="HeaderGrid_MouseLeftButtonDown"
             MouseLeftButtonUp="StopDragMove"
             MouseMove="OnDragMove"
@@ -114,7 +114,7 @@
                             Width="10"
                             Height="1"
                             VerticalAlignment="Center"
-                            Fill="{DynamicResource Foreground_LightColor}" />
+                            Fill="{DynamicResource PrimaryTextColor_Black}" />
                     </Grid>
                 </Button>
                 <Button
@@ -131,7 +131,7 @@
                         <Path
                             Margin="13,0,0,0"
                             Data="{Binding Source={StaticResource ic_svg_path_max}, Path=Data}"
-                            Fill="{DynamicResource Foreground_LightColor}" />
+                            Fill="{DynamicResource PrimaryTextColor_Black}" />
                     </Grid>
                 </Button>
                 <Button
@@ -148,7 +148,7 @@
                         <Path
                             Margin="2,0,0,0"
                             Data="{Binding Source={StaticResource ic_svg_path_normal}, Path=Data}"
-                            Fill="{DynamicResource Foreground_LightColor}" />
+                            Fill="{DynamicResource PrimaryTextColor_Black}" />
                     </Grid>
                 </Button>
                 <Button
@@ -166,7 +166,7 @@
                         <Polygon
                             Name="X"
                             Margin="21,3,0,0"
-                            Fill="{DynamicResource Foreground_LightColor}"
+                            Fill="{DynamicResource PrimaryTextColor_Black}"
                             Points="{Binding Source={StaticResource ic_svg_polygon_close}, Path=Points}" />
                         <Polygon
                             Name="XX"
@@ -189,7 +189,7 @@
             HorizontalAlignment="Center"
             FontSize="20"
             FontWeight="Bold"
-            Foreground="{DynamicResource Foreground_LightColor}"
+            Foreground="{DynamicResource PrimaryTextColor_Black}"
             MouseLeftButtonDown="HeaderGrid_MouseLeftButtonDown"
             MouseLeftButtonUp="StopDragMove"
             MouseMove="OnDragMove"

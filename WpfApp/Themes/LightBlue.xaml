@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    >
+
+    <!--主色是应用中出现最频繁的颜色。如果没有使用辅助色的话，也可以用主色来强调元素。
+        要在元素之间创造对比度，可以使用较浅或较深色调的主色。较浅和较深的色调之间的对比度有助于区分不同的表面，例如区分状态栏和工具栏。-->
+    <SolidColorBrush x:Key="PrimaryColor" Color="#3F51B5"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryColor_Dark" Color="#283593"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryColor_Light" Color="#7986CB"></SolidColorBrush>
+
+
+    <!--辅助色用于强调 UI 中的选择部分。辅助色可以是和主色互补的，也可以是和主色类似的，但它不应该只是简单的对主色进行加深或变浅。辅助色应该和它周围的元素形成对比，并作为强调，且应谨慎使用。
+        按钮、浮动操作按钮、按钮文本
+        文本框、光标、文本选择
+        进度条
+        选择控件、按钮、滑块
+        链接
+        标题-->
+    <SolidColorBrush x:Key="SecondaryColor" Color="#FF4081"></SolidColorBrush>
+    <!--辅助色太浅或太深，不足以与背景色形成充分对比，请使用较浅或较深的辅助色代替。-->
+    <SolidColorBrush x:Key="SecondaryColor_Dark" Color="#F50057"></SolidColorBrush>
+    <SolidColorBrush x:Key="SecondaryColor_Light" Color="#FF80AB"></SolidColorBrush>
+
+    <!--用于警示-->
+    <SolidColorBrush x:Key="DangerColor" Color="#FF4081"></SolidColorBrush>
+    <SolidColorBrush x:Key="DangerColor_Dark" Color="#F50057"></SolidColorBrush>
+    <SolidColorBrush x:Key="DangerColor_Light" Color="#FF80AB"></SolidColorBrush>
+    
+
+    <!--背景色可以使用主色调PrimaryColor
+        通过使用白色与黑色与主色调背景色突出层次感
+        -->
+    <SolidColorBrush x:Key="BackgroundColor_DarkGray" Color="#888888"></SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundColor_LightGray" Color="#f7f7f7"></SolidColorBrush>
+
+
+    <!--Divider，分割线-->
+    <SolidColorBrush x:Key="DividerColor_Light" Color="#d1d4d7"></SolidColorBrush>
+    <SolidColorBrush x:Key="DividerColor_Dark" Color="#3b3b3b"></SolidColorBrush>
+    
+    <!--文本色
+        文本色使用的时候根据文本背景，通过透明度实现与背景的对比
+        这里提供两种简单的亮灰色与暗灰色-->
+    <SolidColorBrush x:Key="PrimaryTextColor_Black" Color="#000000"></SolidColorBrush>
+    <SolidColorBrush x:Key="PrimaryTextColor_White" Color="#FFFFFF"></SolidColorBrush>
+    <SolidColorBrush x:Key="TextColor_DarkGray" Color="#343a40"></SolidColorBrush>
+    <SolidColorBrush x:Key="TextColor_LightGray" Color="#9e9e9e"></SolidColorBrush>
+
+
+</ResourceDictionary>
