@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using log4net;
-using WpfApp.Config;
 using log4net.Config;
 using log4net.Repository;
 using System.Windows.Input;
@@ -14,7 +13,7 @@ using System.IO;
 
 namespace WpfApp.ViewModel
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,6 +34,9 @@ namespace WpfApp.ViewModel
             LogInfo.Info("开始记录log");
         }
 
+
+
+
         #region Log4Net
         public static ILog LogDebug = null;
         public static ILog LogInfo = null;
@@ -48,16 +50,9 @@ namespace WpfApp.ViewModel
 
         static void InitLog4Net()
         {
-            ILoggerRepository repository = null;//LogManager.CreateRepository("NETRepository");
-            try
-            {
-                repository = LogManager.GetRepository(ApplicationSetting.Settings.DefaultLogRepository);
-            }
-            catch (Exception)
-            {
-                repository = LogManager.CreateRepository(ApplicationSetting.Settings.DefaultLogRepository);
-            }
-            XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));            
+            ILoggerRepository repository = LogManager.CreateRepository("NETRepository");
+            XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));
+            //LogInfo = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
             LogDebug = LogManager.GetLogger(repository.Name, "logDebug");
             LogInfo = LogManager.GetLogger(repository.Name, "loginfo");
             LogError = LogManager.GetLogger(repository.Name, "logError");

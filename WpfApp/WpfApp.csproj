@@ -75,14 +75,19 @@
     </ApplicationDefinition>
     <Compile Include="Config\ApplicationSetting.cs" />
     <Compile Include="Controls\MyWindow.cs" />
+    <Compile Include="Converter\ComoBoxMinWidth.cs" />
+    <Compile Include="Converter\ConvertPathListToFileNameList.cs" />
+    <Compile Include="Converter\ImageFilePathToBitmapImage.cs" />
     <Compile Include="Converter\MaxButtonConverter.cs" />
+    <Compile Include="Converter\NavRadioBtnConverter.cs" />
+    <Compile Include="Converter\PopupVeticalOffsetConverter.cs" />
     <Compile Include="TestIdCardReader.xaml.cs">
       <DependentUpon>TestIdCardReader.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainVM.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="Views\Window10.xaml.cs">
-      <DependentUpon>Window10.xaml</DependentUpon>
+    <Compile Include="Windows\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,27 +101,47 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resource\Location\CommonStr_Zh.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resource\Svg\svgresource.xaml">
+    <Page Include="Resource\Location\CommonStr_EnUs.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\Win10Style.xaml">
+    <Page Include="Resource\Location\CommonStr_ZhCn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\Icons\svgresource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\Svg\SvgResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\SimpleStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Win10_Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TestIdCardReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\WindowStyle.xaml">
+    <Page Include="Themes\DefaultColor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Window10.xaml">
+    <Page Include="Themes\DefaultIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DefaultTextFont.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,11 +174,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\AppleLogo.png" />
+    <Resource Include="Resource\Icons\AppleLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\AppleLogo_32x32.png" />
-    <Resource Include="Resource\AppleLogo_64x64.png" />
+    <Resource Include="Resource\Icons\AppleLogo_32x32.png" />
+    <Resource Include="Resource\Icons\AppleLogo_64x64.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tools\Tools.csproj">
@@ -164,30 +189,27 @@
   <ItemGroup>
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\close.png" />
-    <Resource Include="Resource\down.png" />
-    <Resource Include="Resource\upward.png" />
+    <Resource Include="Resource\Icons\close.png" />
+    <Resource Include="Resource\Icons\down.png" />
+    <Resource Include="Resource\Icons\upward.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\chevron-down-blue.png" />
-    <Resource Include="Resource\chevron-down-gray.png" />
-    <Resource Include="Resource\chevron-up-blue.png" />
-    <Resource Include="Resource\chevron-up-gray.png" />
-    <Resource Include="Resource\close-blue.png" />
-    <Resource Include="Resource\close-gray.png" />
+    <Resource Include="Resource\Icons\chevron-down-blue.png" />
+    <Resource Include="Resource\Icons\chevron-down-gray.png" />
+    <Resource Include="Resource\Icons\chevron-up-blue.png" />
+    <Resource Include="Resource\Icons\chevron-up-gray.png" />
+    <Resource Include="Resource\Icons\close-blue.png" />
+    <Resource Include="Resource\Icons\close-gray.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\chevron-down-dark.png" />
-    <Resource Include="Resource\chevron-up-dark.png" />
-    <Resource Include="Resource\close-red.png" />
+    <Resource Include="Resource\Icons\chevron-down-dark.png" />
+    <Resource Include="Resource\Icons\chevron-up-dark.png" />
+    <Resource Include="Resource\Icons\close-red.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Theme\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\Tools\packages\MaterialDesignThemes.3.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\Tools\packages\MaterialDesignThemes.3.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

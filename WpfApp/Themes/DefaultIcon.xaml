@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <BitmapImage x:Key="RefreshIcon">pack://application:,,,/Suooter.Resources/Icons/refresh.png</BitmapImage>
+    <BitmapImage x:Key="switch_button">pack://application:,,,/Suooter.Resources/Icons/switch-button.png</BitmapImage>
+    <BitmapImage x:Key="circle_close">pack://application:,,,/Suooter.Resources/Icons/circle-close.png</BitmapImage>
+    <BitmapImage x:Key="Corlors_OpenFile">pack://application:,,,/Suooter.Resources/Icons/ColorsIcon/open.png</BitmapImage>
+    <BitmapImage x:Key="Corlors_Printer">pack://application:,,,/Suooter.Resources/Icons/ColorsIcon/Printer 打印机.png</BitmapImage>
+    <BitmapImage x:Key="Icon_Corlors_Save">pack://application:,,,/Suooter.Resources/Icons/ColorsIcon/disk.png</BitmapImage>
+</ResourceDictionary>

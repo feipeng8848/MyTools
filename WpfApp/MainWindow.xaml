@@ -1,162 +1,209 @@
-﻿<Window x:Class="WpfApp.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
-        ResizeMode="CanResizeWithGrip" 
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None" AllowsTransparency="True"  ShowInTaskbar="True"
-        Title="MainWindow" Height="550" Width="800" MinHeight="550" MinWidth="800"
-        Style="{DynamicResource WindowStyle}"
-        Template="{DynamicResource WindowTemplateKey}" Loaded="Window_Loaded">
+﻿<Window
+    x:Class="WpfApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:WpfApp.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="_MainWindow"
+    Title="MainWindow"
+    Width="1200"
+    Height="700 "
+    Margin="5"
+    BorderThickness="0.7,0.7,1,1"
+    Focusable="True"
+    ResizeMode="CanResize"
+    UseLayoutRounding="True"
+    WindowStartupLocation="CenterScreen">
 
-    <Window.Background>
-        <SolidColorBrush Opacity="0.5"></SolidColorBrush>
-    </Window.Background>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            ResizeBorderThickness="5"
+            UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
 
-    <Border Name="WindowBorder" BorderThickness="1" BorderBrush="Gray" 
-            Margin="10" Background="White" CornerRadius="{Binding WindowCorner}">
-        <Border.Effect>
-            <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="0" Opacity="0.5"/>
-        </Border.Effect>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition MaxHeight="35"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <!--Title Bar-->
-            <Border Name="TitleBorder" Background="#00affd" CornerRadius="{Binding TiterCorner}" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"></Border>
-            <StackPanel Grid.Row="0" MouseLeftButtonDown="NavBar_MouseLeftButtonDown"
-                    Orientation="Horizontal" 
-                        HorizontalAlignment="Stretch" 
-                        >
-                <Image Margin="2" Source="/Resource/AppleLogo_32x32.png"></Image>
-                <TextBlock Text="Title" VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0" Foreground="White"></TextBlock>
+    <FrameworkElement.Resources>
+        <ResourceDictionary x:Name="WindowUISource">
+            <converter:MaxButtonConverter x:Key="MaxButtonConverter" />
+            <converter:NavRadioBtnConverter x:Key="NavRadioBtnConverter" />
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+
+
+
+    <Grid>
+        <FrameworkElement.Style>
+            <Style TargetType="{x:Type Grid}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}" Value="Maximized">
+                        <Setter Property="Margin" Value="7" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}" Value="Normal">
+                        <Setter Property="Margin" Value="0" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </FrameworkElement.Style>
+
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="32" MaxHeight="32" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  导航栏与右上角关闭按钮  -->
+        <Grid
+            Height="32"
+            VerticalAlignment="Top"
+            Background="{DynamicResource PrimaryColor_Main}"
+            MouseLeftButtonDown="HeaderGrid_MouseLeftButtonDown"
+            MouseLeftButtonUp="StopDragMove"
+            MouseMove="OnDragMove"
+            Opacity="0.9"
+            Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--  TitleBar Menu NavBar  -->
+            <StackPanel
+                Grid.Column="0"
+                Margin="5,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <RadioButton
+                    Name="rbtnPage1"
+                    Height="30"
+                    Margin="5,0,0,0"
+                    Content="{DynamicResource Nav_Page1}"
+                    FontSize="15"
+                    IsChecked="True"
+                    Style="{DynamicResource SimpleTextRadioButton}" />
+                <RadioButton
+                    Name="rbtnPage2"
+                    Height="30"
+                    Margin="5,0,0,0"
+                    Content="{DynamicResource Nav_Page2}"
+                    FontSize="15"
+                    IsChecked="False"
+                    Style="{DynamicResource SimpleTextRadioButton}" />
             </StackPanel>
-            <!--窗体操作按钮-->
-            <Grid Grid.Row="0" HorizontalAlignment="Right" Width="81">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <!--关闭按钮-->
-                    <!--<Button Height="30" Grid.Column="2"
-                                    Background="{x:Null}"
-                                    BorderBrush="{x:Null}"
-                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
-                                    Click="Close_Click"
-                                    Padding="0">
-                        <Viewbox Width="25" Height="25">
-                            <Canvas Width="24"  Height="24">
-                                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-                                              Fill="Black" />
-                            </Canvas>
-                        </Viewbox>
-                    </Button>-->
-                    <Button Width="25" Height="25" Grid.Column="2" Click="Close_Click">
-                        <Button.Template>
-                            <ControlTemplate>
-                                <Border>
-                                    <Image Name="Image" Margin="2" Source="Resource/close-gray.png" />
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Image" Property="Source" Value="Resource/close-red.png"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    
-                    <!--最大化-->
-                    <!--<Button Height="30" Grid.Column="1"
-                                    Background="{x:Null}"
-                                    BorderBrush="{x:Null}"
-                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
-                                    Click="Max_Click"
-                                    Padding="0">
-                        
-                        <Viewbox Width="25" Height="25">
-                            <Canvas Width="24" Height="24">
-                                <Path Data="M4,4H20V20H4V4M6,8V18H18V8H6Z"  Fill="Black" />
-                            </Canvas>
-                        </Viewbox>
-                    </Button>-->
-                    <Button Width="25" Height="25" Grid.Column="1" Click="Max_Click">
-                        <Button.Template>
-                            <ControlTemplate>
-                                <Border>
-                                    <Image Name="Image" Margin="2" Source="Resource/chevron-up-gray.png" />
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Image" Property="Source" Value="Resource/chevron-up-dark.png"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <!--最小化-->
-                    <!--<Button Height="30"
-                                    Background="{x:Null}"
-                                    BorderBrush="{x:Null}"
-                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
-                                    Click="Min_Click"
-                                    Padding="0">
-                        <Viewbox Width="25" Height="25">
-                            <Canvas Width="24" Height="24">
-                                <Path Data="M20,14H4V10H20" Fill="Black" />
-                            </Canvas>
-                        </Viewbox>
-                    </Button>-->
-                    <Button Width="25" Height="25" Grid.Column="0" Click="Min_Click">
-                        <Button.Template>
-                            <ControlTemplate>
-                                <Border>
-                                    <Image Name="Image" Margin="2" Source="Resource/chevron-down-gray.png" />
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Image" Property="Source" Value="Resource/chevron-down-dark.png"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </Grid>
-            </Grid>
-            <ScrollViewer  Grid.Row="1" Margin="5">
-                <StackPanel>
-                    <Button Width="100" Height="35" Content="按钮" Name="btn" Click="Btn_Click"></Button>
-                    <ComboBox Width="150" Margin="10" ItemsSource="{Binding}" Name="combo" HorizontalAlignment="Right"></ComboBox>
-                    <DataGrid Margin="5" Name="datagrid" ItemsSource="{Binding}" CanUserAddRows="False" ColumnWidth="*"></DataGrid>
-                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="20"></TextBlock>
-                    <TextBox Margin="5" Width="200" Text="你好" FontSize="20" HorizontalAlignment="Left"></TextBox>
-                    <ListBox Height="100"></ListBox>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Button Margin="5" Width="150" Content="测试身份证阅读器" Name="btnTestIDReader"
-                            Click="BtnTestIDReader_Click" Command="{Binding BtnClick}"></Button>
 
+            <!--  close max  -->
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="45"
+                    Height="32"
+                    Background="#00FFFFFF"
+                    Click="MinButton_Click"
+                    Style="{DynamicResource SimpleNormalButtonStyle}">
+                    <Grid
+                        Width="24"
+                        Height="24"
+                        Background="#00FFFFFF">
+                        <Rectangle
+                            Width="10"
+                            Height="1"
+                            VerticalAlignment="Center"
+                            Fill="{DynamicResource Foreground_LightColor}" />
                     </Grid>
-
-                   
-                </StackPanel>
-            </ScrollViewer>
-            
+                </Button>
+                <Button
+                    Width="45"
+                    Height="32"
+                    Background="#00FFFFFF"
+                    Click="MaxButtonClick"
+                    Style="{DynamicResource SimpleNormalButtonStyle}"
+                    Visibility="{Binding ElementName=_MainWindow, Path=WindowState, Converter={StaticResource MaxButtonConverter}, ConverterParameter=Max, Mode=OneWay}">
+                    <Grid
+                        Width="24"
+                        Height="24"
+                        Background="#00FFFFFF">
+                        <Path
+                            Margin="13,0,0,0"
+                            Data="{Binding Source={StaticResource ic_svg_path_max}, Path=Data}"
+                            Fill="{DynamicResource Foreground_LightColor}" />
+                    </Grid>
+                </Button>
+                <Button
+                    Width="45"
+                    Height="32"
+                    Background="#00FFFFFF"
+                    Click="NormalButtonClick"
+                    Style="{DynamicResource SimpleNormalButtonStyle}"
+                    Visibility="{Binding ElementName=_MainWindow, Path=WindowState, Converter={StaticResource MaxButtonConverter}, ConverterParameter=Normal, Mode=OneWay}">
+                    <Grid
+                        Width="24"
+                        Height="24"
+                        Background="#00FFFFFF">
+                        <Path
+                            Margin="2,0,0,0"
+                            Data="{Binding Source={StaticResource ic_svg_path_normal}, Path=Data}"
+                            Fill="{DynamicResource Foreground_LightColor}" />
+                    </Grid>
+                </Button>
+                <Button
+                    Width="45"
+                    Height="32"
+                    Click="OnCloseButtonClick"
+                    MouseEnter="OnClickButtonMouseEnter"
+                    MouseLeave="OnClickButtonMouseLeave"
+                    Style="{StaticResource SImpleCloseButtonStyle}">
+                    <Grid
+                        Name="CloseCover"
+                        Width="45"
+                        Height="32"
+                        Background="#00FFFFFF">
+                        <Polygon
+                            Name="X"
+                            Margin="21,3,0,0"
+                            Fill="{DynamicResource Foreground_LightColor}"
+                            Points="{Binding Source={StaticResource ic_svg_polygon_close}, Path=Points}" />
+                        <Polygon
+                            Name="XX"
+                            Margin="21,3,0,0"
+                            Fill="#FFFFFFFF"
+                            Points="{Binding Source={StaticResource ic_svg_polygon_close}, Path=Points}"
+                            Visibility="Collapsed" />
+                    </Grid>
+                </Button>
+            </StackPanel>
         </Grid>
-    </Border>
+
+
+
+        <!--  标题栏Title  -->
+        <TextBlock
+            Grid.Row="0"
+            Height="32"
+            Margin="0,3,0,0"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="{DynamicResource Foreground_LightColor}"
+            MouseLeftButtonDown="HeaderGrid_MouseLeftButtonDown"
+            MouseLeftButtonUp="StopDragMove"
+            MouseMove="OnDragMove"
+            Text="{DynamicResource MainWindowTitle}" />
+
+        <!--  Body  -->
+        <Grid Grid.Row="1" Visibility="{Binding ElementName=rbtnPage1, Path=IsChecked, Converter={StaticResource NavRadioBtnConverter}, Mode=TwoWay}">
+            <TextBlock FontSize="50">This is page 1</TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1" Visibility="{Binding ElementName=rbtnPage2, Path=IsChecked, Converter={StaticResource NavRadioBtnConverter}, Mode=TwoWay}">
+            <TextBlock FontSize="80">This is page 2</TextBlock>
+        </Grid>
+    </Grid>
+
+
 </Window>

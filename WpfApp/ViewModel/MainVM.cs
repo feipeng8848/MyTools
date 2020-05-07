@@ -70,6 +70,21 @@ namespace WpfApp.ViewModel
             }
         }
 
+        public ICommand CloseAllCammerCommand
+        {
+            get
+            {
+                return new RelayCommand
+                {
+                    CanExecutePredicate = a => true,
+                    ExecuteAction = a =>
+                    {
+                        LogInfo.Info("CloseAllCammerCommand, stop capture and close device");
+                    }
+                };
+            }
+        }
+
 
     }
 }
